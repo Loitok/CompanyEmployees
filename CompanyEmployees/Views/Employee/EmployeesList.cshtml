@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EmployeeModel>
+@{
+    ViewData["Title"] = "Company Employees List";
+}
+
+<head>
+    <script src="~/js/employee-list.js"></script>
+    <link rel="stylesheet" href="css/employee-list.css">
+</head>
+
+<div class="table">
+    <table id="myTable" class="table table-bordered table-hover table-sm">
+        <thead>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Position)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalaryAmount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmploymentDate)
+                </th>
+
+            </tr>
+        </thead>
+
+        <tbody>
+        @{
+            if (Model != null)
+            {
+                foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@data.EmployeeId</td>
+                        <td>@data.Name</td>
+                        <td>@data.Position</td>
+                        <td>@data.SalaryAmount</td>
+                        <td>@data.EmploymentDate</td>
+                    </tr>
+                }
+            }
+        }
+        </tbody>
+    </table>
+</div>
